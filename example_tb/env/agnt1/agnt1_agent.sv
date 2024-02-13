@@ -4,7 +4,7 @@ class agnt1 extends uvm_agent;
     `uvm_component_utils(agnt1)
     
     // Declare the sequencer
-    agnt1_seqr m_sequencer;
+    agnt1_seqr m_seqr;
     
     // Declare the driver
     agnt1_driver m_driver;
@@ -22,8 +22,8 @@ class agnt1 extends uvm_agent;
         super.build_phase(phase);
         
         // Create the sequencer
-        m_sequencer = agnt1_seqr::type_id::create("m_sequencer", this);
-        if (m_sequencer == null) `uvm_fatal("agnt1", "Error creating m_sequencer")
+        m_seqr = agnt1_seqr::type_id::create("m_seqr", this);
+        if (m_seqr == null) `uvm_fatal("agnt1", "Error creating m_seqr")
         
         // Create the driver
         m_driver = agnt1_driver::type_id::create("m_driver", this);
@@ -34,24 +34,16 @@ class agnt1 extends uvm_agent;
         if (m_monitor == null) `uvm_fatal("agnt1", "Error creating m_monitor")
     endfunction
     
-    // Connect phase
+   // Connect phase
     function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
         
         // Connect the sequencer to the driver
-        m_driver.seq_item_port.connect(m_sequencer.seq_item_export);
+        m_driver.seq_item_port.connect(m_seqr.seq_item_export);
         
-        // Connect the monitor to the driver
-        m_monitor.ap.connect(m_driver.ap);
     endfunction
     
-    // Run phase
-    task run_phase(uvm_phase phase);
-        super.run_phase(phase);
-        
-        // Start the sequencer
-        m_sequencer.start(m_sequencer);
-    endtask
+   
 
 endclass
 

@@ -7,6 +7,7 @@ import uvm_pkg::*;
 import agnt_pkg::*;
 
 class env_name extends uvm_env;
+    `uvm_component_utils(env_name)
 
     // Declare the agents
    

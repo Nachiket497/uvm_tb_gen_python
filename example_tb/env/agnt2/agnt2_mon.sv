@@ -1,13 +1,13 @@
 // code for uvm_monitor
 
-class agnt2_mon extends uvm_monitor #(agnt_seq_item);
+class agnt2_mon extends uvm_monitor #(agnt2_seq_item);
     `uvm_component_utils(agnt2_mon)
     
     // Declare the interface
     
 
-    #uvm_analysis_port #(agnt_seq_item) ap;
-    agnt_seq_item trns;
+    uvm_analysis_port #(agnt2_seq_item) ap;
+    agnt2_seq_item trns;
     
     // Constructor
     function new(string name = "agnt2_mon", uvm_component parent);
@@ -32,3 +32,4 @@ class agnt2_mon extends uvm_monitor #(agnt_seq_item);
             // Wait for a while
         end
     endtask
+endclass

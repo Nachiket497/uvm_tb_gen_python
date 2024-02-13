@@ -2,7 +2,7 @@
 
 class agnt1_seq_item extends uvm_sequence_item;
 
-    `uvm_component_utils(agnt1_seq_item)
+    `uvm_object_utils(agnt1_seq_item)
 
     // constructor
     function new(string name = "agnt1_seq_item");
