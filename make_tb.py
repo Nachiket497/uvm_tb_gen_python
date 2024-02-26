@@ -12,6 +12,23 @@ def write_lines(f, data):
     for line in data :
         f.write(line)
 
+
+def make_test(cwd, test_folder, sub_sys_name):
+    # take a template from template folder and copy to test folder change test_name to sub_sys_name_test
+    template_file = os.path.join(template_folder, 'uvm_test.sv')
+    test_file = os.path.join(cwd + test_folder, sub_sys_name + '_test.sv')
+
+    with open(template_file, 'r') as f:
+        new_data = []
+        for line in f.readlines():
+            line = line.replace('env_name', sub_sys_name + '_env')
+            new_data.append(line)
+   
+    with open(test_file, 'w') as f:
+        write_lines(f, new_data)
+
+
+   
 def make_env_file(cwd, env_folder, sub_sys_name):
     # take a template from template folder and copy to env folder change env_name to sub_sys_name_env
 
@@ -54,7 +71,6 @@ def make_agnt_pkg_file(cwd, env_folder, sub_sys_name):
 
 def make_agent(agnt_path, agnt):
     # take a template from template folder and copy to agnt folder change agnt_name to agnt
-
     agnt_pkg_data = []
     for template_file in template_files_list :
         agnt_file = os.path.join(agnt_path, agnt + template_file.replace('uvm', ''))
@@ -109,7 +125,8 @@ def make_folder_struct(cwd, sub_sys_name) :
         os.makedirs(cwd + tb_folder + interface_folder)
     # make intf file
     make_intf_file(cwd + tb_folder + interface_folder, sub_sys_name)
-
+    test_folder = os.path.join(cwd, '/tests') 
+    make_test(cwd, test_folder, sub_sys_name)
     # open sim folder and make a run_scripts folder
     sim_folder = os.path.join(cwd, '/sim')
     run_scripts_folder = os.path.join(sim_folder, '/run_scripts')
