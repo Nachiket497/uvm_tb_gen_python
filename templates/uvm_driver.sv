@@ -1,7 +1,7 @@
 // code for uvm_driver
 
 class agnt_name_driver extends uvm_driver #(agnt_name_seq_item);
-    `uvm_component_utils(uvm_driver)
+    `uvm_component_utils(agnt_name_driver)
     
     // Declare intf handles
 
@@ -29,15 +29,16 @@ class agnt_name_driver extends uvm_driver #(agnt_name_seq_item);
     
     // Run phase
     task run_phase(uvm_phase phase);
-        super.run_phase(phase);
-        seq_item_port.get_next_item(req);
-        drive();
-        seq_item_port.item_done(); 
-
+        forever begin
+            super.run_phase(phase);
+            seq_item_port.get_next_item(req);
+            drive();
+            seq_item_port.item_done(); 
+        end
     endtask
 
     task drive();
-
+        //drive the intf
     endtask
 
 endclass

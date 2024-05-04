@@ -1,7 +1,7 @@
 // code for uvm_agent
 
-class agnt_name extends uvm_agent;
-    `uvm_component_utils(agnt_name)
+class agnt_name_agent extends uvm_agent;
+    `uvm_component_utils(agnt_name_agent)
     
     // Declare the sequencer
     agnt_name_seqr m_seqr;
@@ -12,6 +12,8 @@ class agnt_name extends uvm_agent;
     // Declare the monitor
     agnt_name_mon m_monitor;
     
+    // Declare intf handles
+
     // Constructor
     function new(string name = "agnt_name", uvm_component parent);
         super.new(name, parent);
@@ -34,16 +36,14 @@ class agnt_name extends uvm_agent;
         if (m_monitor == null) `uvm_fatal("agnt_name", "Error creating m_monitor")
     endfunction
     
-   // Connect phase
+    // Connect phase
     function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
-        
+        // Connect the intf 
         // Connect the sequencer to the driver
         m_driver.seq_item_port.connect(m_seqr.seq_item_export);
         
     endfunction
     
-   
-
 endclass
 

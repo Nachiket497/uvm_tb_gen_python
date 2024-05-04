@@ -1,0 +1,10 @@
+axi_narrow i_narrow_struct 2 o_narrow_struct 2
+    axi_narrow_in_req_t  [3:0][3:0] chiplet_narrow_req_i
+    axi_narrow_out_rsp_t [3:0][3:0] chiplet_narrow_rsp_i
+    axi_narrow_out_req_t [3:0][3:0] chiplet_narrow_req_o
+    axi_narrow_in_rsp_t  [3:0][3:0] chiplet_narrow_rsp_o
+axi_wide i_wide_struct 2 o_wide_struct 2
+    axi_wide_in_req_t    [3:0][3:0] chiplet_wide_req_i
+    axi_wide_out_rsp_t   [3:0][3:0] chiplet_wide_rsp_i
+    axi_wide_out_req_t   [3:0][3:0] chiplet_wide_req_o
+    axi_wide_in_rsp_t    [3:0][3:0] chiplet_wide_rsp_o

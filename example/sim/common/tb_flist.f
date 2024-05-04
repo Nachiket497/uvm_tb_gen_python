@@ -1,0 +1,17 @@
++incdir+$PROJDIR_TB/
++incdir+$PROJDIR_TB/env/
++incdir+$PROJDIR_TB/sequences/
++incdir+$PROJDIR_TB/sim/
++incdir+$PROJDIR_TB/tb/
++incdir+$PROJDIR_TB/tb/interface
++incdir+$PROJDIR_TB/tests/
++incdir+$PROJDIR_TB/vips/
++incdir+$PROJDIR_TB/env/axi_narrow
++incdir+$PROJDIR_TB/env/axi_wide
+$PROJDIR_TB/env/struct_pkg.sv
+$PROJDIR_TB/tb/interface/cere_noc_intf.sv
+$PROJDIR_TB/tb/interface/clk_reset_intf.sv
+$PROJDIR_TB/tests/cere_noc_base_test.sv
+$PROJDIR_TB/tb/verilog/tb_top.sv
+$PROJDIR_TB/tb/verilog/dut_top_wrapper.sv
+$PROJDIR_TB/tb/verilog/dut_tb_wrapper.sv
